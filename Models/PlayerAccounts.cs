@@ -8,7 +8,6 @@ namespace FinalProject.Models
     public class PlayerAccounts
     {
         public string username { get; set; }
-        public string email { get; set; }
         public int number_of_characters { get; set; }
         public bool violations { get; set; }
     }

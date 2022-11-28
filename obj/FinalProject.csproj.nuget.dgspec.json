@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\saidu\\Desktop\\API\\FinalProject\\FinalProject.csproj": {}
+    "C:\\Users\\saidu\\Desktop\\API\\APIFinalProject\\FinalProject.csproj": {}
   },
   "projects": {
-    "C:\\Users\\saidu\\Desktop\\API\\FinalProject\\FinalProject.csproj": {
+    "C:\\Users\\saidu\\Desktop\\API\\APIFinalProject\\FinalProject.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\saidu\\Desktop\\API\\FinalProject\\FinalProject.csproj",
+        "projectUniqueName": "C:\\Users\\saidu\\Desktop\\API\\APIFinalProject\\FinalProject.csproj",
         "projectName": "FinalProject",
-        "projectPath": "C:\\Users\\saidu\\Desktop\\API\\FinalProject\\FinalProject.csproj",
+        "projectPath": "C:\\Users\\saidu\\Desktop\\API\\APIFinalProject\\FinalProject.csproj",
         "packagesPath": "C:\\Users\\saidu\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\saidu\\Desktop\\API\\FinalProject\\obj\\",
+        "outputPath": "C:\\Users\\saidu\\Desktop\\API\\APIFinalProject\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\saidu\\AppData\\Roaming\\NuGet\\NuGet.Config",
@@ -40,6 +40,10 @@
         "net6.0": {
           "targetAlias": "net6.0",
           "dependencies": {
+            "MySqlConnector": {
+              "target": "Package",
+              "version": "[2.2.1, )"
+            },
             "Swashbuckle.AspNetCore": {
               "target": "Package",
               "version": "[6.2.3, )"
@@ -68,7 +72,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\6.0.401\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.100\\RuntimeIdentifierGraph.json"
         }
       }
     }

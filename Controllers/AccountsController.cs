@@ -6,6 +6,7 @@ using FinalProject.Models;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
+using System.Data.SqlClient;
 
 namespace FinalProject.Controllers
 {
@@ -25,7 +26,10 @@ namespace FinalProject.Controllers
 
         public Response GetAllAccounts()
         {
+            SqlConnection connection = new SqlConnection(_configuration.GetConnectionString("CrudConnection").ToString());
             Response response = new Response();
+            DAL dal = new DAL();
+            response = dal.GetAllAccounts(connection);
 
             return response;
         }

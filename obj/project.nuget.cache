@@ -1,13 +1,14 @@
 {
   "version": 2,
-  "dgSpecHash": "FihJ/m1/bPlgzmRQVlKLbWKkDRkeyTUCwcDm01bzdJFeV4n143ya9NliGxlbMtpEHwduHPjDFvsgPsJWtP7l+w==",
+  "dgSpecHash": "II6Zq2N99WW6zHiWhIZ+2JTWFw96xs6DwQ/uIP7UXlZk5SENsbLv36wV/pKxzsEk/TBCr/SVb4pvk4ssB3ZFaw==",
   "success": true,
-  "projectFilePath": "C:\\Users\\saidu\\Desktop\\API\\FinalProject\\FinalProject.csproj",
+  "projectFilePath": "C:\\Users\\saidu\\Desktop\\API\\APIFinalProject\\FinalProject.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\saidu\\.nuget\\packages\\microsoft.extensions.apidescription.server\\3.0.0\\microsoft.extensions.apidescription.server.3.0.0.nupkg.sha512",
     "C:\\Users\\saidu\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\saidu\\.nuget\\packages\\microsoft.openapi\\1.2.3\\microsoft.openapi.1.2.3.nupkg.sha512",
     "C:\\Users\\saidu\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
+    "C:\\Users\\saidu\\.nuget\\packages\\mysqlconnector\\2.2.1\\mysqlconnector.2.2.1.nupkg.sha512",
     "C:\\Users\\saidu\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\saidu\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
     "C:\\Users\\saidu\\.nuget\\packages\\runtime.win-x64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-x64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
