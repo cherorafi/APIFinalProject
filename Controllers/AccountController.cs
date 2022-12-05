@@ -1,8 +1,9 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Threading.Tasks;
-
+using Azure.Identity;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -49,6 +50,35 @@ namespace WebAPI.Controllers
             return account;
         }
 
+        [HttpGet("violations")]
+        public async Task<ActionResult<IEnumerable<Account>>> GetAccountViolations()
+        {
+            if (_context.Accounts == null)
+            {
+                return NotFound();
+            }
+            return await _context.Accounts.Where(e => e.violations == true).ToListAsync();
+        }
+
+        [HttpGet("player/{id}")]
+        public async Task<ActionResult<Account>> GetAccountPlayer(int id)
+        {
+            if (_context.Accounts == null)
+            {
+                return NotFound();
+            }
+
+            var player = await _context.Players.FindAsync(id);
+
+            if (player == null)
+            {
+                return NotFound();
+            }
+            var username = player.username;
+
+            return await _context.Accounts.FindAsync(username);
+        }
+
         [HttpPut("{username}")]
         public async Task<IActionResult> PutAccount(string username, Account account)
         {
@@ -75,12 +105,34 @@ namespace WebAPI.Controllers
                 }
             }
 
-            return NoContent();
+            var response = new Response();
+            response.statusCode = 200;
+            response.statusDescription = "Updated account info";
+
+            return Ok(response);
         }
 
         private bool AccountExists(string username)
         {
             return (_context.Accounts?.Any(e => e.username == username)).GetValueOrDefault();
+        }
+
+        [HttpPatch("violations/{username}")]
+        public async Task<IActionResult> UpdateAccountViolations(string username, [FromBody] bool violations)
+        {
+            var account = await _context.Accounts.FindAsync(username);
+            if (account == null)
+            {
+                return NotFound();
+            }
+            account.violations = violations;
+            await _context.SaveChangesAsync();
+
+            var response = new Response();
+            response.statusCode = 200;
+            response.statusDescription = "Updated account violations";
+
+            return Ok(response);
         }
 
         // POST: api/Customer
@@ -97,6 +149,35 @@ namespace WebAPI.Controllers
             await _context.SaveChangesAsync();
 
             return CreatedAtAction("GetAccount", new { username = account.username }, account);
+        }
+
+        [HttpDelete("{username}")]
+        public async Task<IActionResult> DeleteAccount(string username)
+        {
+            var response = new Response();
+            if (!AccountExists(username))
+            {
+                return NotFound();
+            }
+            
+            var account = await _context.Accounts.FirstOrDefaultAsync(e => e.username == username);
+
+            if (account.number_of_characters != 0)
+            {
+                response.statusCode = 400;
+                response.statusDescription = "Account has active players. Please delete players belong to account first";
+                return Ok(response);
+            }
+    
+            _context.Accounts.Remove(account);
+
+
+            await _context.SaveChangesAsync();
+
+            response.statusCode = 200;
+            response.statusDescription = "Deleted account";
+
+            return Ok(response);
         }
     }
 }
